@@ -8,15 +8,61 @@ namespace WpfCopyTest;
 /// </summary>
 internal static class WindowsClipboard
 {
+    private static string? _lastText;
+
     public static void SetText(string text)
     {
         TryOpenClipboard();
-        InnerSet(text);
+        SetTextData(text);
     }
 
-    private static void InnerSet(string text)
+    public static void SetTextDelayed(string text, nint ownerHandle)
+    {
+        TryOpenClipboard(ownerHandle);
+        _lastText = text;
+        SetEmptyData();
+    }
+
+    public static void RenderFormat(IntPtr format)
+    {
+        if (_lastText is null || format != SafeNativeMethods.CF_UNICODE_TEXT)
+        {
+            return;
+        }
+
+        RenderText(_lastText);
+    }
+
+    private static void SetEmptyData()
     {
         SafeNativeMethods.EmptyClipboard();
+
+        try
+        {
+            SafeNativeMethods.SetClipboardData(SafeNativeMethods.CF_UNICODE_TEXT, IntPtr.Zero);
+        }
+        finally
+        {
+            SafeNativeMethods.CloseClipboard();
+        }
+    }
+
+    private static void SetTextData(string text)
+    {
+        SafeNativeMethods.EmptyClipboard();
+
+        try
+        {
+            RenderText(text);
+        }
+        finally
+        {
+            SafeNativeMethods.CloseClipboard();
+        }
+    }
+
+    private static void RenderText(string text)
+    {
         IntPtr hGlobal = default;
         try
         {
@@ -58,17 +104,15 @@ internal static class WindowsClipboard
             {
                 Marshal.FreeHGlobal(hGlobal);
             }
-
-            SafeNativeMethods.CloseClipboard();
         }
     }
 
-    private static void TryOpenClipboard()
+    private static void TryOpenClipboard(nint ownerHandle = default)
     {
         var num = 10;
         while (true)
         {
-            if (SafeNativeMethods.OpenClipboard(default))
+            if (SafeNativeMethods.OpenClipboard(ownerHandle))
             {
                 break;
             }

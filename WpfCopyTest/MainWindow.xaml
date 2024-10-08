@@ -18,7 +18,7 @@
         <StackPanel>
             <RadioButton Name="WpfClipboardCopyRadioButton" IsChecked="True">System.Windows.Clipboard</RadioButton>
             <RadioButton Name="Win32CopyRadioButton">Win32 API</RadioButton>
-            <!-- <RadioButton Name="Win32RenderedCopyRadioButton">Win32 API (rendered data)</RadioButton> -->
+            <RadioButton Name="Win32DelayedCopyRadioButton">Win32 API (delayed rendering)</RadioButton>
             <Button Click="CopyButton_OnClick">Copy</Button>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1">

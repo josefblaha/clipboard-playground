@@ -1,15 +1,44 @@
 ﻿using System.Diagnostics;
 using System.Windows;
+using System.Windows.Interop;
 
 namespace WpfCopyTest;
 
 public partial class MainWindow
 {
     private int _nextNumber = 1;
+    private IntPtr _hwnd;
 
     public MainWindow()
     {
         InitializeComponent();
+        SourceInitialized += OnSourceInitialized;
+    }
+
+    private void OnSourceInitialized(object? sender, EventArgs e)
+    {
+        _hwnd = new WindowInteropHelper(this).Handle;
+        AddLog($"Current window HWND: {_hwnd:X}");
+        
+        var hwndSource = HwndSource.FromHwnd(_hwnd);
+        if (hwndSource == null)
+        {
+            throw new Exception("No HWND source");
+        }
+
+        hwndSource.AddHook(WndProc);
+    }
+
+    private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
+    {
+        if (msg is SafeNativeMethods.WM_RENDERFORMAT)
+        {
+            var ownerHwnd = SafeNativeMethods.GetClipboardOwner();
+            AddLog($"WM_RENDERFORMAT. Owner HWND: {ownerHwnd:X}");
+            WindowsClipboard.RenderFormat(wparam);
+            handled = true;
+        }
+        return IntPtr.Zero;
     }
 
     private void CopyButton_OnClick(object sender, RoutedEventArgs e)
@@ -26,6 +55,10 @@ public partial class MainWindow
             else if (Win32CopyRadioButton.IsChecked == true)
             {
                 WindowsClipboard.SetText(copyText);
+            }
+            else if (Win32DelayedCopyRadioButton.IsChecked == true)
+            {
+                WindowsClipboard.SetTextDelayed(copyText, _hwnd);
             }
 
             sw.Stop();
