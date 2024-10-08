@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCopyTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="WPF Copy Test" Height="450" Width="800">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <RadioButton Name="WpfClipboardCopyRadioButton" IsChecked="True">System.Windows.Clipboard</RadioButton>
+            <RadioButton Name="Win32CopyRadioButton">Win32 API</RadioButton>
+            <!-- <RadioButton Name="Win32RenderedCopyRadioButton">Win32 API (rendered data)</RadioButton> -->
+            <Button Click="CopyButton_OnClick">Copy</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <RadioButton IsChecked="True" IsEnabled="False">System.Windows.Clipboard</RadioButton>
+            <Button Click="ClearButton_OnClick">Clear</Button>
+        </StackPanel>
+        
+        <ListBox Name="LogListBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
     </Grid>
 </Window>
