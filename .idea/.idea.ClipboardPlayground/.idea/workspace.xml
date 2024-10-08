@@ -7,11 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3857c22-2d2b-488f-80fc-0c8ccc497c04" name="Changes" comment="Add test code for WPF and Win32 clipboard">
+    <list default="true" id="d3857c22-2d2b-488f-80fc-0c8ccc497c04" name="Changes" comment="Add test code for delayed Win32 copy">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ClipboardPlayground/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ClipboardPlayground/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WpfCopyTest/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/WpfCopyTest/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfCopyTest/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfCopyTest/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfCopyTest/SafeNativeMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfCopyTest/SafeNativeMethods.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WpfCopyTest/WindowsClipboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfCopyTest/WindowsClipboard.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +45,9 @@
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WpfCopyTest/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WpfCopyTest/MainWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WpfCopyTest/SafeNativeMethods.cs" root0="SKIP_HIGHLIGHTING" />
@@ -65,7 +66,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.WpfCopyTest.executor": "Debug",
+    ".NET Project.WpfCopyTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
@@ -107,7 +108,7 @@
       <updated>1728237599956</updated>
       <workItem from="1728237601277" duration="61000" />
       <workItem from="1728237672901" duration="756000" />
-      <workItem from="1728374845949" duration="5959000" />
+      <workItem from="1728374845949" duration="7138000" />
     </task>
     <task id="LOCAL-00001" summary="Create empty WPF app">
       <option name="closed" value="true" />
@@ -125,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728377278321</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add test code for delayed Win32 copy">
+      <option name="closed" value="true" />
+      <created>1728381978671</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728381978671</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,25 +145,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Create empty WPF app" />
     <MESSAGE value="Add test code for WPF and Win32 clipboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add test code for WPF and Win32 clipboard" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WpfCopyTest/MainWindow.xaml.cs</url>
-          <line>35</line>
-          <properties documentPath="D:\Documents\clipboard-playground\WpfCopyTest\MainWindow.xaml.cs" containingFunctionPresentation="Method 'WndProc'">
-            <startOffsets>
-              <option value="881" />
-            </startOffsets>
-            <endOffsets>
-              <option value="935" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Add test code for delayed Win32 copy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add test code for delayed Win32 copy" />
   </component>
 </project>

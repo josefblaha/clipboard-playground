@@ -20,7 +20,7 @@ internal static class WindowsClipboard
     {
         TryOpenClipboard(ownerHandle);
         _lastText = text;
-        SetEmptyData();
+        SetEmptyTextData();
     }
 
     public static void RenderFormat(IntPtr format)
@@ -33,9 +33,12 @@ internal static class WindowsClipboard
         RenderText(_lastText);
     }
 
-    private static void SetEmptyData()
+    private static void SetEmptyTextData()
     {
-        SafeNativeMethods.EmptyClipboard();
+        if (!SafeNativeMethods.EmptyClipboard())
+        {
+            ThrowWin32();
+        }
 
         try
         {
@@ -49,7 +52,10 @@ internal static class WindowsClipboard
 
     private static void SetTextData(string text)
     {
-        SafeNativeMethods.EmptyClipboard();
+        if (!SafeNativeMethods.EmptyClipboard())
+        {
+            ThrowWin32();
+        }
 
         try
         {

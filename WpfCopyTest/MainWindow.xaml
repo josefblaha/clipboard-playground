@@ -13,6 +13,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel>
@@ -26,6 +27,7 @@
             <Button Click="ClearButton_OnClick">Clear</Button>
         </StackPanel>
         
-        <ListBox Name="LogListBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">Log (recent messages first):</Label>
+        <ListBox Name="LogListBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
     </Grid>
 </Window>
