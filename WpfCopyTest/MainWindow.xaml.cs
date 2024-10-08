@@ -19,7 +19,7 @@ public partial class MainWindow
     {
         _hwnd = new WindowInteropHelper(this).Handle;
         AddLog($"Current window HWND: {_hwnd:X}");
-        
+
         var hwndSource = HwndSource.FromHwnd(_hwnd);
         if (hwndSource == null)
         {
@@ -31,13 +31,20 @@ public partial class MainWindow
 
     private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
     {
-        if (msg is SafeNativeMethods.WM_RENDERFORMAT)
+        if (msg == SafeNativeMethods.WM_RENDERFORMAT)
         {
             var ownerHwnd = SafeNativeMethods.GetClipboardOwner();
-            AddLog($"WM_RENDERFORMAT. Owner HWND: {ownerHwnd:X}");
+            var openedHwnd = SafeNativeMethods.GetOpenClipboardWindow();
+            AddLog($"WM_RENDERFORMAT. Owner HWND: {ownerHwnd:X}, opened HWND: {openedHwnd:X}");
             WindowsClipboard.RenderFormat(wparam);
             handled = true;
         }
+
+        if (msg == SafeNativeMethods.WM_DESTROYCLIPBOARD)
+        {
+            AddLog("WM_DESTROYCLIPBOARD");
+        }
+
         return IntPtr.Zero;
     }
 

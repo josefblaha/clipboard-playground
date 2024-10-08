@@ -7,6 +7,7 @@ internal static class SafeNativeMethods
     public const uint CF_UNICODE_TEXT = 13;
     public const int WM_RENDERFORMAT = 0x0305;
     public const int WM_RENDERALLFORMATS = 0x0306;
+    public const int WM_DESTROYCLIPBOARD = 0x0307;
 
     [DllImport("User32.dll", SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
@@ -41,4 +42,7 @@ internal static class SafeNativeMethods
 
     [DllImport("user32.dll", SetLastError = true)]
     public static extern IntPtr GetClipboardOwner();
+    
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern IntPtr GetOpenClipboardWindow();
 }
