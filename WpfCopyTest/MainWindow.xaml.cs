@@ -79,7 +79,7 @@ public partial class MainWindow
         catch (Exception ex)
         {
             sw.Stop();
-            AddLog($"Copy failed with '{ex.Message}' in {sw.Elapsed}");
+            AddLog($"Copy {copyText} failed with '{ex.Message}' in {sw.Elapsed}");
             LogOpenClipboardWindow();
         }
     }
