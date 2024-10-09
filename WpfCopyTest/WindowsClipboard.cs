@@ -18,7 +18,7 @@ internal static class WindowsClipboard
 
     public static void SetTextDelayed(string text, nint ownerHandle)
     {
-        TryOpenClipboard(ownerHandle);
+        TryOpenClipboard();
         _lastText = text;
         SetEmptyTextData();
     }
@@ -38,12 +38,9 @@ internal static class WindowsClipboard
         var hwnd = SafeNativeMethods.GetOpenClipboardWindow();
         if (hwnd == IntPtr.Zero)
         {
-            var lastWin32Error = Marshal.GetLastWin32Error();
-            if (lastWin32Error != 0)
-            {
-                ThrowWin32();
-            }
+            ThrowWin32IfError();
         }
+
         return hwnd;
     }
 
@@ -57,6 +54,7 @@ internal static class WindowsClipboard
         try
         {
             SafeNativeMethods.SetClipboardData(SafeNativeMethods.CF_UNICODE_TEXT, IntPtr.Zero);
+            ThrowWin32IfError();
         }
         finally
         {
@@ -148,6 +146,20 @@ internal static class WindowsClipboard
 
     private static void ThrowWin32()
     {
-        throw new Win32Exception(Marshal.GetLastWin32Error());
+        ThrowWin32(Marshal.GetLastWin32Error());
+    }
+
+    private static void ThrowWin32(int lastWin32Error)
+    {
+        throw new Win32Exception(lastWin32Error);
+    }
+
+    private static void ThrowWin32IfError()
+    {
+        var lastWin32Error = Marshal.GetLastWin32Error();
+        if (lastWin32Error != 0)
+        {
+            ThrowWin32(lastWin32Error);
+        }
     }
 }
