@@ -28,7 +28,7 @@
             <Button Click="WpfFlushButton_OnClick">System.Windows.Clipboard.Flush</Button>
         </StackPanel>
         
-        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">Log (recent messages first):</Label>
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">Log:</Label>
         <ListBox Name="LogListBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
     </Grid>
 </Window>

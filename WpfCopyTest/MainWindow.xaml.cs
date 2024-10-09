@@ -120,6 +120,6 @@ public partial class MainWindow
 
     private void AddLog(string message)
     {
-        LogListBox.Items.Insert(0, message);
+        LogListBox.Items.Insert(0, $"{DateTime.Now:HH:mm:ss.fff}: {message}");
     }
 }
