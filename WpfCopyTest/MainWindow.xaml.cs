@@ -34,8 +34,8 @@ public partial class MainWindow
         if (msg == SafeNativeMethods.WM_RENDERFORMAT)
         {
             var ownerHwnd = SafeNativeMethods.GetClipboardOwner();
-            var openedHwnd = SafeNativeMethods.GetOpenClipboardWindow();
-            AddLog($"WM_RENDERFORMAT. Owner HWND: {ownerHwnd:X}, opened HWND: {openedHwnd:X}");
+            AddLog($"WM_RENDERFORMAT. Owner HWND: {ownerHwnd:X}");
+            LogOpenClipboardWindow();
             WindowsClipboard.RenderFormat(wparam);
             handled = true;
         }
@@ -76,6 +76,7 @@ public partial class MainWindow
         {
             sw.Stop();
             AddLog($"Copy failed with '{ex.Message}' in {sw.Elapsed}");
+            LogOpenClipboardWindow();
         }
     }
 
@@ -89,7 +90,14 @@ public partial class MainWindow
         catch (Exception ex)
         {
             AddLog($"Clear failed with '{ex.Message}'");
+            LogOpenClipboardWindow();
         }
+    }
+
+    private void LogOpenClipboardWindow()
+    {
+        var openedHwnd = WindowsClipboard.GetOpenClipboardWindow();
+        AddLog($"GetOpenClipboardWindow() => {openedHwnd:X}");
     }
 
     private void AddLog(string message)

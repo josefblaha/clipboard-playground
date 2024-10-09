@@ -33,6 +33,20 @@ internal static class WindowsClipboard
         RenderText(_lastText);
     }
 
+    public static IntPtr GetOpenClipboardWindow()
+    {
+        var hwnd = SafeNativeMethods.GetOpenClipboardWindow();
+        if (hwnd == IntPtr.Zero)
+        {
+            var lastWin32Error = Marshal.GetLastWin32Error();
+            if (lastWin32Error != 0)
+            {
+                ThrowWin32();
+            }
+        }
+        return hwnd;
+    }
+
     private static void SetEmptyTextData()
     {
         if (!SafeNativeMethods.EmptyClipboard())

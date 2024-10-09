@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3857c22-2d2b-488f-80fc-0c8ccc497c04" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ClipboardPlayground/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ClipboardPlayground/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfCopyTest/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfCopyTest/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WpfCopyTest/SafeNativeMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WpfCopyTest/SafeNativeMethods.cs" afterDir="false" />
-    </list>
+    <list default="true" id="d3857c22-2d2b-488f-80fc-0c8ccc497c04" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +105,7 @@
       <workItem from="1728237601277" duration="61000" />
       <workItem from="1728237672901" duration="756000" />
       <workItem from="1728374845949" duration="8217000" />
-      <workItem from="1728399802650" duration="3132000" />
+      <workItem from="1728399802650" duration="3834000" />
     </task>
     <task id="LOCAL-00001" summary="Create empty WPF app">
       <option name="closed" value="true" />
@@ -143,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728382941450</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add WM_DESTROYCLIPBOARD log; add open clipboard window log">
+      <option name="closed" value="true" />
+      <created>1728413033179</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728413033179</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +160,7 @@
     <MESSAGE value="Add test code for WPF and Win32 clipboard" />
     <MESSAGE value="Add test code for delayed Win32 copy" />
     <MESSAGE value="Small improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small improvements" />
+    <MESSAGE value="Add WM_DESTROYCLIPBOARD log; add open clipboard window log" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add WM_DESTROYCLIPBOARD log; add open clipboard window log" />
   </component>
 </project>
