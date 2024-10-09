@@ -59,6 +59,10 @@ public partial class MainWindow
             {
                 Clipboard.SetText(copyText);
             }
+            else if (WpfClipboardNoFlushCopyRadioButton.IsChecked == true)
+            {
+                Clipboard.SetDataObject(copyText, false);
+            }
             else if (Win32CopyRadioButton.IsChecked == true)
             {
                 WindowsClipboard.SetText(copyText);
@@ -80,7 +84,7 @@ public partial class MainWindow
         }
     }
 
-    private void ClearButton_OnClick(object sender, RoutedEventArgs e)
+    private void WpfClearButton_OnClick(object sender, RoutedEventArgs e)
     {
         try
         {
@@ -90,6 +94,20 @@ public partial class MainWindow
         catch (Exception ex)
         {
             AddLog($"Clear failed with '{ex.Message}'");
+            LogOpenClipboardWindow();
+        }
+    }
+
+    private void WpfFlushButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            Clipboard.Flush();
+            AddLog("Flushed clipboard");
+        }
+        catch (Exception ex)
+        {
+            AddLog($"Flush failed with '{ex.Message}'");
             LogOpenClipboardWindow();
         }
     }

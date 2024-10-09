@@ -18,13 +18,14 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <RadioButton Name="WpfClipboardCopyRadioButton" IsChecked="True">System.Windows.Clipboard</RadioButton>
+            <RadioButton Name="WpfClipboardNoFlushCopyRadioButton">System.Windows.Clipboard (no flush)</RadioButton>
             <RadioButton Name="Win32CopyRadioButton">Win32 API</RadioButton>
             <RadioButton Name="Win32DelayedCopyRadioButton">Win32 API (delayed rendering)</RadioButton>
             <Button Click="CopyButton_OnClick">Copy</Button>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1">
-            <RadioButton IsChecked="True" IsEnabled="False">System.Windows.Clipboard</RadioButton>
-            <Button Click="ClearButton_OnClick">Clear</Button>
+            <Button Click="WpfClearButton_OnClick">System.Windows.Clipboard.Clear</Button>
+            <Button Click="WpfFlushButton_OnClick">System.Windows.Clipboard.Flush</Button>
         </StackPanel>
         
         <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">Log (recent messages first):</Label>
