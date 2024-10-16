@@ -18,7 +18,7 @@ internal static class WindowsClipboard
 
     public static void SetTextDelayed(string text, nint ownerHandle)
     {
-        TryOpenClipboard();
+        TryOpenClipboard(ownerHandle);
         _lastText = text;
         SetEmptyTextData();
     }
