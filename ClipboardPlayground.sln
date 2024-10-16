@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCopyTest", "WpfCopyTest\WpfCopyTest.csproj", "{C4179260-5020-452D-B43F-2142E88C6C7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsCopyTest", "WinFormsCopyTest\WinFormsCopyTest.csproj", "{7B31B827-A745-4374-9340-D3BE09866335}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{C4179260-5020-452D-B43F-2142E88C6C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4179260-5020-452D-B43F-2142E88C6C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4179260-5020-452D-B43F-2142E88C6C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B31B827-A745-4374-9340-D3BE09866335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B31B827-A745-4374-9340-D3BE09866335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B31B827-A745-4374-9340-D3BE09866335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B31B827-A745-4374-9340-D3BE09866335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
