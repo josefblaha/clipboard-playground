@@ -42,13 +42,16 @@ internal static class SafeNativeMethods
 
     [DllImport("user32.dll", SetLastError = true)]
     public static extern IntPtr GetClipboardOwner();
-    
+
     [DllImport("user32.dll", SetLastError = true)]
     public static extern IntPtr GetOpenClipboardWindow();
-    
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern IntPtr GetClipboardViewer();
+
     [DllImport("user32.dll", SetLastError = true)]
     public static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
-    
+
     [DllImport("user32.dll", SetLastError = true)]
     public static extern bool ChangeClipboardChain(IntPtr hWndRemove, IntPtr hWndNewNext);
 }

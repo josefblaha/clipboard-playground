@@ -44,6 +44,17 @@ internal static class WindowsClipboard
         return hwnd;
     }
 
+    public static IntPtr GetClipboardViewer()
+    {
+        var viewerHwnd = SafeNativeMethods.GetClipboardViewer();
+        if (viewerHwnd == IntPtr.Zero)
+        {
+            ThrowWin32IfError();
+        }
+
+        return viewerHwnd;
+    }
+    
     public static IntPtr GetNextClipboardViewer(IntPtr helperHwnd)
     {
         var nextHwnd = SafeNativeMethods.SetClipboardViewer(helperHwnd);

@@ -125,6 +125,19 @@ public partial class MainWindow
         }
     }
 
+    private void GetClipboardViewer_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var viewerHwnd = WindowsClipboard.GetClipboardViewer();
+            AddLog($"GetClipboardViewer() => {viewerHwnd:X}");
+        }
+        catch (Exception ex)
+        {
+            AddLog($"GetClipboardViewer failed with '{ex.Message}'");
+        }
+    }
+
     private void LogOpenClipboardWindow()
     {
         var openedHwnd = WindowsClipboard.GetOpenClipboardWindow();
