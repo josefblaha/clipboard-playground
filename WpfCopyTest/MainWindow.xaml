@@ -26,6 +26,7 @@
         <StackPanel Grid.Row="0" Grid.Column="1">
             <Button Click="WpfClearButton_OnClick">System.Windows.Clipboard.Clear</Button>
             <Button Click="WpfFlushButton_OnClick">System.Windows.Clipboard.Flush</Button>
+            <Button Click="GetNextClipboardViewer_OnClick">Get next clipboard viewer</Button>
         </StackPanel>
         
         <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">Log:</Label>

@@ -112,6 +112,19 @@ public partial class MainWindow
         }
     }
 
+    private void GetNextClipboardViewer_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var viewerHwnd = WindowsClipboard.GetNextClipboardViewer(_hwnd);
+            AddLog($"Next clipboard viewer: {viewerHwnd:X}");
+        }
+        catch (Exception ex)
+        {
+            AddLog($"Get next clipboard viewer failed with '{ex.Message}'");
+        }
+    }
+
     private void LogOpenClipboardWindow()
     {
         var openedHwnd = WindowsClipboard.GetOpenClipboardWindow();
