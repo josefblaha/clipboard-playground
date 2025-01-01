@@ -17,10 +17,20 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel>
-            <RadioButton Name="WpfClipboardCopyRadioButton" IsChecked="True">System.Windows.Clipboard</RadioButton>
-            <RadioButton Name="WpfClipboardNoFlushCopyRadioButton">System.Windows.Clipboard (no flush)</RadioButton>
-            <RadioButton Name="Win32CopyRadioButton">Win32 API</RadioButton>
-            <RadioButton Name="Win32DelayedCopyRadioButton">Win32 API (delayed rendering)</RadioButton>
+            <GroupBox Header="Copy API">
+                <StackPanel>
+                    <RadioButton Name="WpfClipboardCopyRadioButton" IsChecked="True">System.Windows.Clipboard</RadioButton>
+                    <RadioButton Name="WpfClipboardNoFlushCopyRadioButton">System.Windows.Clipboard (no flush)</RadioButton>
+                    <RadioButton Name="Win32CopyRadioButton">Win32 API</RadioButton>
+                    <RadioButton Name="Win32DelayedCopyRadioButton">Win32 API (delayed rendering)</RadioButton>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Copy value">
+                <StackPanel>
+                    <RadioButton Name="NumberValueRadioButton" IsChecked="True">Incremental number</RadioButton>
+                    <RadioButton Name="BigStringValueRadioButton">1G string</RadioButton>
+                </StackPanel>
+            </GroupBox>
             <Button Click="CopyButton_OnClick">Copy</Button>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1">

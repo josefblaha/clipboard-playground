@@ -50,7 +50,7 @@ public partial class MainWindow
 
     private void CopyButton_OnClick(object sender, RoutedEventArgs e)
     {
-        var copyText = (_nextNumber++).ToString();
+        var copyText = GetNextCopyText();
         var sw = Stopwatch.StartNew();
 
         try
@@ -74,14 +74,28 @@ public partial class MainWindow
 
             sw.Stop();
 
-            AddLog($"Copied {copyText} in {sw.Elapsed}");
+            AddLog($"Copied {GetCopyValuePreview(copyText)} in {sw.Elapsed}");
         }
         catch (Exception ex)
         {
             sw.Stop();
-            AddLog($"Copy {copyText} failed with '{ex.Message}' in {sw.Elapsed}");
+            AddLog($"Copy {GetCopyValuePreview(copyText)} failed with '{ex.Message}' in {sw.Elapsed}");
             LogOpenClipboardWindow();
         }
+    }
+
+    private string GetNextCopyText()
+    {
+        return NumberValueRadioButton.IsChecked == true
+            ? (_nextNumber++).ToString()
+            : new string('a', 1_000_000_000);
+    }
+
+    private string GetCopyValuePreview(string copyText)
+    {
+        return NumberValueRadioButton.IsChecked == true
+            ? copyText
+            : $"(string of length ${copyText.Length})";
     }
 
     private void WpfClearButton_OnClick(object sender, RoutedEventArgs e)
