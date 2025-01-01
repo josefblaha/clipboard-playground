@@ -54,4 +54,7 @@ internal static class SafeNativeMethods
 
     [DllImport("user32.dll", SetLastError = true)]
     public static extern bool ChangeClipboardChain(IntPtr hWndRemove, IntPtr hWndNewNext);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern uint GetWindowThreadProcessId(IntPtr hwnd, out uint lpdwProcessId);
 }

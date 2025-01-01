@@ -155,7 +155,20 @@ public partial class MainWindow
     private void LogOpenClipboardWindow()
     {
         var openedHwnd = WindowsClipboard.GetOpenClipboardWindow();
-        AddLog($"GetOpenClipboardWindow() => {openedHwnd:X}");
+        var pid = GetWindowPid(openedHwnd);
+        AddLog($"GetOpenClipboardWindow() => {openedHwnd:X} (PID: {pid})");
+    }
+
+    private static int GetWindowPid(IntPtr hwnd)
+    {
+        if (hwnd == IntPtr.Zero)
+            return 0;
+
+        var threadId = SafeNativeMethods.GetWindowThreadProcessId(hwnd, out uint processId);
+        if (threadId == 0)
+            return 0;
+
+        return (int)processId;
     }
 
     private void AddLog(string message)
