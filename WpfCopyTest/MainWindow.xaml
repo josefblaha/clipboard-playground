@@ -31,7 +31,14 @@
                     <RadioButton Name="BigStringValueRadioButton">1G string</RadioButton>
                 </StackPanel>
             </GroupBox>
-            <Button Click="CopyButton_OnClick">Copy</Button>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Button Margin="3" Height="25" Click="CopyButton_OnClick">Copy</Button>
+                <Button Grid.Column="1" Margin="3" Click="CopyMultipleTimesButton_OnClick">Copy 10x</Button>
+            </Grid>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1">
             <Button Click="WpfClearButton_OnClick">System.Windows.Clipboard.Clear</Button>

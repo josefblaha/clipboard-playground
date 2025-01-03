@@ -50,6 +50,19 @@ public partial class MainWindow
 
     private void CopyButton_OnClick(object sender, RoutedEventArgs e)
     {
+        Copy();
+    }
+
+    private void CopyMultipleTimesButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Copy();
+        }
+    }
+
+    private void Copy()
+    {
         var copyText = GetNextCopyText();
         var sw = Stopwatch.StartNew();
 
